@@ -12,9 +12,10 @@ import com.devsuperisor.dslist.dto.GameDTO;
 import com.devsuperisor.dslist.dto.GameMinDTO;
 import com.devsuperisor.dslist.services.GameService;
 
+
 @RestController
 @RequestMapping(value = "/games")
-public class GameController {
+public class GameController<gameService> {
 
 	@Autowired
 	private GameService gameService;
@@ -25,7 +26,7 @@ public class GameController {
 		return result;
 	}
 		
-	
+
 	@GetMapping
 	public List<GameMinDTO> findAll(){
 		List<GameMinDTO> result = gameService.findAll();

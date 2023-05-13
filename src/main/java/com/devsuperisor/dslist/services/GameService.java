@@ -9,21 +9,19 @@ import org.springframework.transaction.annotation.Transactional;
 import com.devsuperisor.dslist.dto.GameDTO;
 import com.devsuperisor.dslist.dto.GameMinDTO;
 import com.devsuperisor.dslist.entities.Game;
-import com.devsuperisor.dslist.repositories.GameRespository;
-
+import com.devsuperisor.dslist.repositories.GameRepository;
 
 @Service
 public class GameService {
 	
  @Autowired 
- private GameRespository gameRepository;
-
- @Transactional(readOnly = true)
- public GameDTO findById(Long id) {
-	 Game result = gameRepository.findById(id).get();
-	 return new GameDTO(result); 
- }
+ private GameRepository gameRepository;
  
+ @Transactional(readOnly = true)
+ public GameDTO findById(Long Id) {
+	 Game result = gameRepository.findById(Id).get();
+	 return new GameDTO(result);
+ }
  @Transactional(readOnly = true)
  public List<GameMinDTO> findAll() {
 	 List<Game> result = gameRepository.findAll();
